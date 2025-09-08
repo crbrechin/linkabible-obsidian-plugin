@@ -1,0 +1,76 @@
+/* LinkaBible Plugin Styles */
+
+.bible-link-modal .modal-content {
+	max-width: 500px;
+}
+
+.bible-link-modal .modal-content h2 {
+	margin-top: 0;
+	color: var(--text-normal);
+}
+
+.bible-link-modal .modal-content input[type="text"] {
+	width: 100%;
+	margin: 10px 0;
+	padding: 8px;
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 4px;
+	background: var(--background-primary);
+	color: var(--text-normal);
+}
+
+.bible-link-modal .modal-content input[type="text"]:focus {
+	outline: none;
+	border-color: var(--interactive-accent);
+	box-shadow: 0 0 0 2px var(--interactive-accent-hover);
+}
+
+.bible-link-modal .result-div {
+	margin: 10px 0;
+	padding: 8px;
+	background: var(--background-secondary);
+	border-radius: 4px;
+	border: 1px solid var(--background-modifier-border);
+}
+
+.bible-link-modal .button-div {
+	margin: 10px 0;
+	display: flex;
+	gap: 10px;
+}
+
+.bible-link-modal .button-div button {
+	padding: 8px 16px;
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 4px;
+	background: var(--interactive-normal);
+	color: var(--text-normal);
+	cursor: pointer;
+}
+
+.bible-link-modal .button-div button:hover {
+	background: var(--interactive-hover);
+}
+
+.bible-link-modal .button-div button:active {
+	background: var(--interactive-accent);
+}
+
+.bible-link-modal .validation {
+	margin-top: 10px;
+	padding: 8px;
+	border-radius: 4px;
+	font-size: 14px;
+}
+
+.bible-link-modal .validation.valid {
+	background: var(--background-success);
+	color: var(--text-success);
+	border: 1px solid var(--background-modifier-success);
+}
+
+.bible-link-modal .validation.invalid {
+	background: var(--background-error);
+	color: var(--text-error);
+	border: 1px solid var(--background-modifier-error);
+}
