@@ -125,6 +125,14 @@ bible-linker/
 └── versions.json        # Version compatibility
 ```
 
+## Roadmap
+
+### Planned Improvements
+
+- [ ] **Implement paste handler** - Complete the `handlePaste` method for auto-linking on paste
+- [ ] **Remove console logs** - Clean up production code by removing debug statements
+- [ ] **Create .gitignore** - Add proper gitignore file for the project
+
 ## Contributing
 
 1. Fork the repository
