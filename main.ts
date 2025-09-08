@@ -17,6 +17,7 @@ const DEFAULT_SETTINGS: BibleLinkerSettings = {
 export default class LinkaBiblePlugin extends Plugin {
 	settings: BibleLinkerSettings;
 	private bibleBooks: Map<string, { number: string; name: string; chapters: number }> = new Map();
+	private originalBookNames: Map<string, string> = new Map(); // Maps lowercase key to original case
 
 	async onload() {
 		await this.loadSettings();
@@ -167,7 +168,9 @@ export default class LinkaBiblePlugin extends Plugin {
 		};
 
 		for (const [name, info] of Object.entries(books)) {
-			this.bibleBooks.set(name.toLowerCase(), info);
+			const lowerKey = name.toLowerCase();
+			this.bibleBooks.set(lowerKey, info);
+			this.originalBookNames.set(lowerKey, name); // Store original case
 		}
 	}
 
@@ -222,17 +225,8 @@ export default class LinkaBiblePlugin extends Plugin {
 	}
 
 	getBookDisplayName(key: string): string {
-		const bookInfo = this.bibleBooks.get(key);
-		if (!bookInfo) return key;
-		
-		// Find the original key that maps to this book info
-		for (const [originalKey, info] of Array.from(this.bibleBooks.entries())) {
-			if (info === bookInfo) {
-				// Return the first occurrence (preferred display name)
-				return originalKey;
-			}
-		}
-		return key;
+		// Return the original case from our mapping
+		return this.originalBookNames.get(key) || key;
 	}
 
 	parseVerses(verseString: string): string[] {
